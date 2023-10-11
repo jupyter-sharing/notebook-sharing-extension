@@ -1309,7 +1309,7 @@
     y-protocols "^1.0.5"
     yjs "^13.5.40"
 
-"@jupyterlab/application@^3.1.0":
+"@jupyterlab/application@^3.6.0":
   version "3.6.6"
   resolved "https://npm.apple.com/@jupyterlab/application/-/application-3.6.6.tgz#cc45f68e977838e6a7b6d5e27df44e6b371428a4"
   integrity sha512-zBMoPgX9Zu7HBOKb6+UB2Xw+SpakP+lB7UWBRWEX5q2XarziVae1nIUEjvMHSf3zi+tm8pb3flJXw1Dh4ikeOQ==
@@ -1335,7 +1335,7 @@
     "@lumino/signaling" "^1.10.0"
     "@lumino/widgets" "^1.37.2"
 
-"@jupyterlab/apputils@^3.6.6":
+"@jupyterlab/apputils@^3.6.0", "@jupyterlab/apputils@^3.6.6":
   version "3.6.6"
   resolved "https://npm.apple.com/@jupyterlab/apputils/-/apputils-3.6.6.tgz#014a0c47acedc27e4e7ba75a2f953c4cc8b3d15f"
   integrity sha512-JtTxrx6kEXm7Gy8+/57XHwqkJtwme8AhaKlyQ7LJr8vDNjKluIO12NYQQEdT6lz6TSoJJ+usg2IEqhTHY80byA==
@@ -1502,7 +1502,7 @@
     path-browserify "^1.0.0"
     url-parse "~1.5.1"
 
-"@jupyterlab/docmanager@^3.6.6":
+"@jupyterlab/docmanager@^3.6.0", "@jupyterlab/docmanager@^3.6.6":
   version "3.6.6"
   resolved "https://npm.apple.com/@jupyterlab/docmanager/-/docmanager-3.6.6.tgz#a2fa416ec339e296d211da039722ed48bb39a270"
   integrity sha512-pTwJYLJgmPkSU2WYwnlF8fOmwwYq64TqXk+jzZ/obSGwNE9W6WVY46aVTGymm/qG7IQ6RyEq1oItcFbHqbmQGg==
@@ -1539,7 +1539,7 @@
     y-protocols "^1.0.5"
     y-websocket "^1.4.6"
 
-"@jupyterlab/docregistry@^3.6.6":
+"@jupyterlab/docregistry@^3.6.0", "@jupyterlab/docregistry@^3.6.6":
   version "3.6.6"
   resolved "https://npm.apple.com/@jupyterlab/docregistry/-/docregistry-3.6.6.tgz#1aff7bba0e64611b3c9ed27d58882fd674ca6f13"
   integrity sha512-Yxj5KwUdGucADhRMUwUHSdJV7ImnltBjp6xmchHJKBtYaLSgBhx+S3IJYLwr2xFIMdoCUIupkrUrK1RNcY4J9g==
@@ -1563,7 +1563,7 @@
     "@lumino/signaling" "^1.10.0"
     "@lumino/widgets" "^1.37.2"
 
-"@jupyterlab/filebrowser@^3.6.6":
+"@jupyterlab/filebrowser@^3.6.0", "@jupyterlab/filebrowser@^3.6.6":
   version "3.6.6"
   resolved "https://npm.apple.com/@jupyterlab/filebrowser/-/filebrowser-3.6.6.tgz#caa3cd163641322100cb67c0937f3560749f98b3"
   integrity sha512-YkgJUEEZ0xfdSkIc69VttlairLXjJs4/vsjim3mC3uZkW7roXVck+HlklmLCJk3j4Fh7Ce0O8kOP6kYEeOgT3g==
@@ -1603,7 +1603,7 @@
   dependencies:
     "@lumino/coreutils" "^1.11.0"
 
-"@jupyterlab/notebook@^3.6.6":
+"@jupyterlab/notebook@^3.6.0", "@jupyterlab/notebook@^3.6.6":
   version "3.6.6"
   resolved "https://npm.apple.com/@jupyterlab/notebook/-/notebook-3.6.6.tgz#f738194cd81bc1e5e4930e7fa92a6022c4e43869"
   integrity sha512-JTWrv08RoJun0MyjdjOX2mOTD82i74Puh8nZb023qWyjFRcFw5/luJx/DAsJXAJk5QihIe4Clg3UYwP9P/zn4w==
@@ -1711,7 +1711,7 @@
     node-fetch "^2.6.0"
     ws "^7.4.6"
 
-"@jupyterlab/settingregistry@^3.1.0", "@jupyterlab/settingregistry@^3.6.6":
+"@jupyterlab/settingregistry@^3.6.0", "@jupyterlab/settingregistry@^3.6.6":
   version "3.6.6"
   resolved "https://npm.apple.com/@jupyterlab/settingregistry/-/settingregistry-3.6.6.tgz#b89dc4ac75b7a9e18110e2153d194107d8f9255b"
   integrity sha512-NlrDjbprZ6tlP8NZwKTD6/ZIkyeIRQd8KM6hM4WWD1e4vzk5UZ4ec+6d+1V0M+waxfOO6mKXtIgXsBfwtPPFBQ==
@@ -1806,7 +1806,7 @@
     "@jupyterlab/statedb" "^3.6.6"
     "@lumino/coreutils" "^1.11.0"
 
-"@jupyterlab/ui-components@^3.6.6":
+"@jupyterlab/ui-components@^3.6.0", "@jupyterlab/ui-components@^3.6.6":
   version "3.6.6"
   resolved "https://npm.apple.com/@jupyterlab/ui-components/-/ui-components-3.6.6.tgz#0620e829108d3edffdfd3af77170cf4cb0f68359"
   integrity sha512-KHXSCxpkgLbnudjMPC7x4md2m37uSw1/7Bv9SC8Ncog/pjN71o0mu1GYhj2mlFhRBDYlDo3oRxns9EkLcGEj2Q==
@@ -3501,6 +3501,11 @@ electron-to-chromium@^1.4.535:
   version "1.4.549"
   resolved "https://npm.apple.com/electron-to-chromium/-/electron-to-chromium-1.4.549.tgz#ab223f5d85c55a9def358db163bc8cacba72df69"
   integrity sha512-gpXfJslSi4hYDkA0mTLEpYKRv9siAgSUgZ+UWyk+J5Cttpd1ThCVwdclzIwQSclz3hYn049+M2fgrP1WpvF8xg==
+
+email-validator@^2.0.4:
+  version "2.0.4"
+  resolved "https://npm.apple.com/email-validator/-/email-validator-2.0.4.tgz#b8dfaa5d0dae28f1b03c95881d904d4e40bfe7ed"
+  integrity sha512-gYCwo7kh5S3IDyZPLZf6hSS0MnZT8QmJFqYvbqlDZSbwdZlY6QZWxJ4i/6UhITOJ4XzyI647Bm2MXKCLqnJ4nQ==
 
 emittery@^0.7.1:
   version "0.7.2"

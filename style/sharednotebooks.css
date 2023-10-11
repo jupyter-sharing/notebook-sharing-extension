@@ -1,0 +1,272 @@
+.shared-notebooks {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: var(--jp-sidebar-min-width);
+  color: var(--jp-ui-font-color1);
+  background: var(--jp-layout-color1);
+  font-size: var(--jp-ui-font-size1);
+}
+
+.shared-notebooks-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: var(--jp-border-width) solid var(--jp-border-color2);
+  padding: 0 8px;
+}
+
+.shared-notebooks-section {
+  display: flex;
+  flex: 0 1 auto;
+  overflow: auto;
+  flex-direction: column;
+}
+
+.shared-notebooks-section-header {
+  height: 28px;
+  display: flex;
+  flex: 0 0 auto;
+  cursor: pointer;
+  padding: 4px 8px;
+  align-items: center;
+  border-bottom: var(--jp-border-width) solid var(--jp-border-color2);
+}
+
+.shared-notebooks-section-header:hover {
+  background: var(--jp-layout-color2);
+}
+
+.shared-notebooks-section-header h2 {
+  flex: 0 0 auto;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: var(--jp-ui-font-size0);
+  padding: 8px 8px 8px 12px;
+  margin: 0px;
+  margin-right: auto;
+}
+
+.shared-notebooks-section-header .icon {
+  display: flex;
+  align-items: center;
+}
+
+.shared-notebooks-section-header .items-count {
+  font-weight: 600;
+  font-size: var(--jp-ui-font-size0);
+}
+
+.shared-notebooks-section-container {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+.shared-notebooks-item-label {
+  margin: 0px;
+  display: flex;
+  font-weight: 600;
+  padding: 8px 4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: var(--jp-ui-font-size0);
+}
+
+.shared-notebooks-icon-btn {
+  height: 24px;
+  outline: none;
+  display: flex;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0px 6px;
+  background: none;
+  text-align: center;
+  align-items: center;
+  border: none !important;
+  position: relative;
+}
+
+.shared-notebooks-icon-btn svg {
+  display: block;
+  height: 16px;
+  margin: 0 auto;
+  width: 16px;
+  fill: var(--jp-inverse-layout-color3);
+}
+
+.shared-notebooks-icon-btn:hover {
+  background-color: var(--jp-layout-color2) !important;
+}
+
+.shared-notebooks-section-list {
+  margin: 8px 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.icon-wrapper > div {
+  display: flex;
+}
+
+.shared-notebooks-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--jp-ui-font-color1);
+  line-height: 20px;
+  padding: 4px 8px;
+  min-height: 32px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.shared-notebooks-list-item .file-name {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.shared-notebooks-list-item .button-group {
+  display: flex;
+}
+
+.shared-notebooks-list-item .shared-notebooks-icon-btn {
+  visibility: hidden;
+  border-radius: 0 !important;
+  justify-content: right;
+}
+
+.shared-notebooks-list-item:hover .shared-notebooks-icon-btn {
+  visibility: visible;
+}
+
+.shared-notebooks-list-item .btn-container {
+  display: none;
+}
+
+.shared-notebooks-list-item:hover .btn-container {
+  display: flex;
+}
+
+.shared-notebooks-list-item:hover .modified-date {
+  display: none;
+}
+
+.shared-notebooks-list-item .shared-notebooks-icon-btn:hover {
+  background-color: var(--jp-layout-color3) !important;
+}
+
+.shared-notebooks-list-item .icon-wrapper {
+  display: flex;
+  padding: 0 4px;
+  align-items: center;
+}
+
+.shared-notebooks-list-item .item-label {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0 4px 0 4px;
+  flex-direction: column;
+  text-overflow: ellipsis;
+  font-size: var(--jp-ui-font-size1);
+}
+
+.shared-notebooks-list-item .item-label .header {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shared-notebooks-list-item .item-label .sub-header {
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--jp-content-font-color2);
+}
+
+.shared-notebooks-list-item:hover {
+  background-color: var(--jp-layout-color2);
+}
+
+.shared-notebooks .sync-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  color: var(--jp-content-font-color2);
+}
+
+.shared-notebooks .sync-status p {
+  margin: 4px;
+  line-height: 18px;
+  font-weight: 400;
+  letter-spacing: -0.006em;
+}
+
+.shared-notebooks .filter-wrapper {
+  padding: 8px;
+}
+
+.sort-header {
+  display: flex;
+  user-select: none;
+  justify-content: space-between;
+  box-shadow: var(--jp-toolbar-box-shadow);
+  border-top: var(--jp-border-width) solid var(--jp-border-color2);
+  border-bottom: var(--jp-border-width) solid var(--jp-border-color1);
+}
+
+.sort-header .sort-header-item {
+  display: flex;
+  padding: 2px 16px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  line-height: 14px;
+}
+
+.sort-header-item .icon {
+  margin: 0 4px;
+}
+
+.sort-header .sort-header-item:first-child {
+  flex: 1;
+  padding-right: 0;
+}
+
+.sort-header .sort-header-item:last-child {
+  padding-left: 0;
+  padding-right: 16px;
+  width: 130px;
+  justify-content: flex-end;
+  border-left: var(--jp-border-width) solid var(--jp-border-color2);
+}
+
+.sort-header .sort-header-item:hover {
+  background: var(--jp-layout-color2);
+}
+
+.sort-header-item {
+  padding: 0 8px;
+}
+
+.shared-notebooks-icon-btn .notify {
+  top: 1px;
+  z-index: 1;
+  left: -90px;
+  width: 75px;
+  padding: 4px;
+  display: none;
+  font-size: 12px;
+  border-radius: 2px;
+  position: absolute;
+  color: white;
+  background: var(--jp-inverse-layout-color4);
+}
