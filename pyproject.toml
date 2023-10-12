@@ -1,5 +1,9 @@
 [build-system]
-requires = ["hatchling>=1.4.0", "jupyterlab>=3.4.7,<4.0.0", "hatch-nodejs-version"]
+requires = [
+    "hatchling>=1.4.0",
+    "jupyterlab>=3.4.7,<4.0.0",
+    "hatch-nodejs-version",
+]
 build-backend = "hatchling.build"
 
 [project]
@@ -22,9 +26,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
 ]
-dependencies = [
-    "jupyter_server>=1.21,<3"
-]
+dependencies = ["jupyter_server>=1.21,<3", "jupyter_server_fileid>=0.9.0"]
 dynamic = ["version", "description", "authors", "urls", "keywords"]
 
 [project.optional-dependencies]
@@ -33,7 +35,7 @@ test = [
     "pytest",
     "pytest-asyncio",
     "pytest-cov",
-    "pytest-jupyter[server]>=0.6.0"
+    "pytest-jupyter[server]>=0.6.0",
 ]
 
 [tool.hatch.version]
@@ -78,7 +80,11 @@ build_dir = "jupyter_sharing/labextension"
 version_cmd = "hatch version"
 
 [tool.jupyter-releaser.hooks]
-before-build-npm = ["python -m pip install jupyterlab~=3.1", "jlpm", "jlpm build:prod"]
+before-build-npm = [
+    "python -m pip install jupyterlab~=3.1",
+    "jlpm",
+    "jlpm build:prod",
+]
 before-build-python = ["jlpm clean:all"]
 
 [tool.check-wheel-contents]

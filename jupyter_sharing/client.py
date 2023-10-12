@@ -6,7 +6,7 @@ from typing import List
 from typing import Optional
 
 from jupyter_core.paths import jupyter_runtime_dir
-from jupyter_server.services.contents.manager import ContentsManager
+from jupyter_server_fileid.manager import BaseFileIdManager
 from jupyter_server.utils import url_path_join as ujoin
 from pydantic import AnyUrl
 from tornado.httpclient import AsyncHTTPClient
@@ -23,7 +23,7 @@ from .models import PatchSharedFileModel
 from .models import PublishedFileIdentifier
 from .models import PublishedFileMetadata
 from jupyter_server.auth.identity import User
-from .traits import IntFromEnv
+from traitlets import Integer
 
 
 PUBLISHING_CACHE_PATH = os.path.join(jupyter_runtime_dir(), "publishing")
@@ -86,13 +86,11 @@ class PublishingServiceClientABC(abc.ABC):
 class PublishingServiceClient(LoggingConfigurable):
     """A Client class for talking to the Sharing Service."""
 
-    contents_manager = Instance(ContentsManager)
+    file_id_manager = Instance(BaseFileIdManager)
     publishing_service_url = Unicode().tag(config=True)
     http_client = Instance(AsyncHTTPClient).tag(config=True)
 
-    request_timeout = IntFromEnv(name=10, default_value=120, allow_none=True).tag(
-        config=True
-    )
+    request_timeout = Integer(default_value=120, allow_none=True).tag(config=True)
 
     # Explicitly set a token for all requests to the publishing service.
     # Otherwise, the user model's JWT will be used.
@@ -112,16 +110,12 @@ class PublishingServiceClient(LoggingConfigurable):
         }
         return headers
 
-    @property
-    def cm(self) -> ContentsManager:
-        return self.contents_manager
-
     def get_id_from_link(self, link: AnyUrl) -> str:
         file_id = link.path.split("/")[-1]
         return file_id
 
     def get_id_from_path(self, path: str) -> str:
-        file_id = self.contents_manager.file_id_manager.index(path)
+        file_id = self.file_id_manager.index(path)
         return file_id
 
     def _get_request(self, *, url: str, method: str, data: dict, headers: dict):
@@ -186,15 +180,14 @@ class PublishingServiceClient(LoggingConfigurable):
         self, user: User, model: JupyterContentsModel
     ) -> PublishedFileMetadata:
         path = model.path
-        file_id = self.contents_manager.file_id_manager.index(path)
+        file_id = self.file_id_manager.index(path)
         # NOTE: Convert UUID to a string here. We should watch this to make
         # sure this doesn't cause issues for mapping back.
         create_model = CreateSharedFileModel(
             id=str(file_id),
-            author=user.email,
+            author=user.username,
             title=model.name,
             contents=model,
-            notebook_server=self.notebook_id,
         )
         response = await self._request(
             user, "/sharing", method="POST", data=create_model.dict()
@@ -206,7 +199,6 @@ class PublishingServiceClient(LoggingConfigurable):
     async def update_file(
         self, user: User, model: PatchSharedFileModel
     ) -> PublishedFileMetadata:
-        model.notebook_server = self.notebook_id
         response = await self._request(
             user, f"/sharing/{model.id}", method="PATCH", data=model.dict()
         )
@@ -225,12 +217,12 @@ class PublishingServiceClient(LoggingConfigurable):
         obj: dict = json.loads(response.body)
         return obj
 
-    async def download_file(self, user: User, model: PublishedFileIdentifier) -> None:
-        """Download a file from the Sharing Service to this Jupyter Server."""
-        contents: JupyterContentsModel = await self.get_file_content(
-            user=user, model=model
-        )
-        self.contents_manager.save(contents.dict(), model.path)
+    # async def download_file(self, user: User, model: PublishedFileIdentifier) -> None:
+    #     """Download a file from the Sharing Service to this Jupyter Server."""
+    #     contents: JupyterContentsModel = await self.get_file_content(
+    #         user=user, model=model
+    #     )
+    #     self.contents_manager.save(contents.dict(), model.path)
 
     async def search_collaborators(self, user: User, search_string: str) -> List[dict]:
         response = await self._request(

@@ -51,6 +51,10 @@ class BaseHandler(ExtensionHandlerMixin):
     def publishing_client(self) -> PublishingServiceClient:
         return self.settings["publishing_client"]
 
+    @property
+    def file_id_manager(self) -> PublishingServiceClient:
+        return self.settings["file_id_manager"]
+
 
 class PublishedFileHandler(BaseHandler, APIHandler):
     route = r"/publishing/%s" % _file_id_regex
@@ -89,7 +93,7 @@ class PublishingFileMetadataHandler(BaseHandler, APIHandler):
         path = self.get_argument("path", None)
         path = tornado.escape.url_unescape(path, plus=False)
         # Check if the file has been published before.
-        file_id = self.publishing_client.contents_manager.file_id_manager.get_id(path)
+        file_id = self.file_id_manager.get_id(path)
         if file_id:
             model = PublishedFileIdentifier(id=str(file_id))
             try:

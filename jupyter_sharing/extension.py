@@ -19,10 +19,10 @@ class JupyterSharingExtension(ExtensionApp):
     ).tag(config=True)
 
     def initialize_settings(self):
-        contents_manager = self.serverapp.contents_manager
+        file_id_manager = self.settings.get("file_id_manager")
         publishing_client = self.publishing_client_class(
             parent=self,
-            contents_manager=contents_manager,
+            file_id_manager=file_id_manager,
             publishing_service_url=self.publishing_url,
         )
         # Set some JupyterLab page config for this extension—useful
