@@ -1,0 +1,80 @@
+{
+    "name": "@jupyter_sharing/share-extension",
+    "version": "0.1.0",
+    "description": "A JupyterLab Plugin for sharing documents.",
+    "keywords": [
+        "jupyter",
+        "jupyterlab",
+        "jupyterlab-extension"
+    ],
+    "homepage": "",
+    "bugs": {
+        "url": ""
+    },
+    "license": "BSD-3-Clause",
+    "author": {
+        "name": "",
+        "email": ""
+    },
+    "files": [
+        "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+        "style/**/*.{css,js,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
+        "style/icons/**/*.{svg}",
+        "schema/*.json"
+    ],
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "style": "style/index.css",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "scripts": {
+        "build": "tsc -b",
+        "build:prod": "tsc -b",
+        "clean": "rimraf lib && rimraf tsconfig.tsbuildinfo",
+        "clean:level2": "rimraf node_modules",
+        "docs": "typedoc src",
+        "watch": "tsc -b --watch"
+    },
+    "dependencies": {
+        "@jupyter_sharing/core": "*",
+        "@jupyter_sharing/ui-components": "*",
+        "@jupyterlab/application": "~4.1.0",
+        "@jupyterlab/apputils": "~4.2.0",
+        "@jupyterlab/coreutils": "~6.1.0",
+        "@jupyterlab/docmanager": "~4.1.0",
+        "@jupyterlab/filebrowser": "~4.1.0",
+        "@jupyterlab/mainmenu": "~4.1.0",
+        "@jupyterlab/notebook": "~4.1.0",
+        "@jupyterlab/services": "~7.1.0",
+        "@jupyterlab/translation": "~4.1.0",
+        "@jupyterlab/ui-components": "~4.1.0",
+        "@lumino/algorithm": "^2.0.1",
+        "@lumino/coreutils": "^2.1.2",
+        "@lumino/disposable": "^2.1.2",
+        "@lumino/messaging": "^2.0.1",
+        "@lumino/signaling": "^2.1.2",
+        "@lumino/widgets": "^2.3.1",
+        "@mui/icons-material": "^5.15.7",
+        "@mui/material": "^5.15.7",
+        "email-validator": "^2.0.4",
+        "react": "^18.2.0"
+    },
+    "devDependencies": {
+        "rimraf": "~5.0.5",
+        "typescript": "~5.1.6"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "resolutions": {
+        "@types/react": "^18.2.0"
+    },
+    "sideEffects": [
+        "style/*.css",
+        "style/index.js"
+    ],
+    "styleModule": "style/index.js"
+}
